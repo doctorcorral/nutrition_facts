@@ -32,15 +32,98 @@ class nutritionFactsState extends State<nutritionFacts> {
         child: Column(
           children: <Widget>[
             nutriHeader(),
-            Container(
-                margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-                height: 3.0,
-                color: Colors.black),
+            nutrientValues(),
           ],
         ),
       ),
     );
   }
+}
+
+Widget nutrientValues() {
+  return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        nutrientLine(),
+        nutrientSubLine(),
+        nutrientSubLine(),
+      ]);
+}
+
+Widget nutrientLine(
+    {textSize: 18.0,
+    textWeight1: FontWeight.w900,
+    textWeight2: FontWeight.w500}) {
+  return Column(children: <Widget>[
+    Container(
+        margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+        height: 1.0,
+        color: Colors.black),
+    Row(
+      children: <Widget>[
+        Text(
+          "Total Fat",
+          style: TextStyle(
+              fontSize: textSize, color: Colors.black, fontWeight: textWeight1),
+        ),
+        Text(
+          "0g",
+          style: TextStyle(
+              fontSize: textSize, color: Colors.black, fontWeight: textWeight2),
+        ),
+        Container(
+            margin: const EdgeInsets.only(left: 206.0, right: 1.0),
+            child: Text(
+              "0%",
+              style: TextStyle(
+                  fontSize: textSize,
+                  color: Colors.black,
+                  fontWeight: textWeight1),
+            )),
+      ],
+    )
+  ]);
+}
+
+Widget nutrientSubLine(
+    {textSize: 18.0,
+    textWeight1: FontWeight.w900,
+    textWeight2: FontWeight.w500}) {
+  return Container(
+      padding: EdgeInsetsDirectional.only(start: 26.0, end: 1.0),
+      child: Column(children: <Widget>[
+        Container(
+            margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+            height: 1.0,
+            color: Colors.black),
+        Row(
+          children: <Widget>[
+            Text(
+              "Saturated Fat",
+              style: TextStyle(
+                  fontSize: textSize,
+                  color: Colors.black,
+                  fontWeight: textWeight2),
+            ),
+            Text(
+              "0g",
+              style: TextStyle(
+                  fontSize: textSize,
+                  color: Colors.black,
+                  fontWeight: textWeight2),
+            ),
+            Container(
+                margin: const EdgeInsets.only(left: 140.0, right: 1.0),
+                child: Text(
+                  "0%",
+                  style: TextStyle(
+                      fontSize: textSize,
+                      color: Colors.black,
+                      fontWeight: textWeight1),
+                )),
+          ],
+        )
+      ]));
 }
 
 Widget nutriHeader() {
