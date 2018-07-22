@@ -53,6 +53,24 @@ Widget nutrientValues() {
         nutrientSubLine(nutrientName: "Dietary Fiber", qty: 0, ptg: 0),
         nutrientSubLine(nutrientName: "Sugars", qty: 0, ptg: 0),
         nutrientSubLine(nutrientName: "Protein", qty: 1, ptg: null),
+        footerCalories(),
+      ]);
+}
+
+Widget footerCalories({caloriesNum: 2000}) {
+  return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+          height: 5.0,
+          color: Colors.black,
+        ),
+        Text(
+          "Percent Daily Values are based on a ${caloriesNum} calories diet",
+          style: TextStyle(
+              fontSize: 12.0, color: Colors.black, fontWeight: FontWeight.w400),
+        )
       ]);
 }
 
