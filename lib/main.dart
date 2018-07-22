@@ -50,12 +50,16 @@ Widget nutrientValues() {
         nutrientLine(nutrientName: "Cholesterol", qty: 0),
         nutrientLine(nutrientName: "Sodium", qty: 0),
         nutrientLine(nutrientName: "Total Carbohidrate", qty: 5),
+        nutrientSubLine(nutrientName: "Dietary Fiber", qty: 0),
+        nutrientSubLine(nutrientName: "Sugars", qty: 0),
+        nutrientSubLine(nutrientName: "Protein", qty: 1, ptg: null),
       ]);
 }
 
 Widget nutrientLine(
     {@required nutrientName,
     @required qty,
+    ptg: null,
     unit: "g",
     textSize: 18.0,
     textWeight1: FontWeight.w900,
@@ -78,10 +82,10 @@ Widget nutrientLine(
               fontSize: textSize, color: Colors.black, fontWeight: textWeight2),
         ),
         Container(
-            margin: EdgeInsetsDirectional.only(start: 120.0, end: 0.0),
+            margin: EdgeInsetsDirectional.only(start: 110.0, end: 0.0),
             //margin: const EdgeInsets.only(left: 100.0),
             child: Text(
-              "0%",
+              "${ptg}%",
               textAlign: TextAlign.right,
               style: TextStyle(
                   fontSize: textSize,
@@ -96,6 +100,7 @@ Widget nutrientLine(
 Widget nutrientSubLine(
     {@required nutrientName,
     @required qty,
+    ptg: null,
     unit: "g",
     textSize: 18.0,
     textWeight1: FontWeight.w900,
@@ -124,9 +129,9 @@ Widget nutrientSubLine(
                   fontWeight: textWeight2),
             ),
             Container(
-                margin: const EdgeInsets.only(left: 110.0, right: 1.0),
+                margin: const EdgeInsets.only(left: 100.0, right: 1.0),
                 child: Text(
-                  "0%",
+                  "${ptg}%",
                   style: TextStyle(
                       fontSize: textSize,
                       color: Colors.black,
