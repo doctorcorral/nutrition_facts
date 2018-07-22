@@ -25,7 +25,7 @@ class nutritionFactsState extends State<nutritionFacts> {
     return Container(
       padding: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-          border: new Border.all(color: Colors.white, width: 7.0)),
+          border: new Border.all(color: Colors.white, width: 4.0)),
       child: Container(
         padding: EdgeInsets.all(8.0),
         color: Colors.white,
@@ -44,14 +44,17 @@ Widget nutrientValues() {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        nutrientLine(),
-        nutrientSubLine(),
-        nutrientSubLine(),
+        nutrientLine(nutrientName: "Total Fat"),
+        nutrientSubLine(nutrientName: "Saturated Fat", qty: 0.0),
+        nutrientSubLine(nutrientName: "Trans Fat", qty: 0.0),
+        nutrientLine(nutrientName: "Cholesterol"),
+        nutrientLine(nutrientName: "Sodium"),
       ]);
 }
 
 Widget nutrientLine(
-    {textSize: 18.0,
+    {@required nutrientName,
+    textSize: 18.0,
     textWeight1: FontWeight.w900,
     textWeight2: FontWeight.w500}) {
   return Column(children: <Widget>[
@@ -62,7 +65,7 @@ Widget nutrientLine(
     Row(
       children: <Widget>[
         Text(
-          "Total Fat",
+          nutrientName,
           style: TextStyle(
               fontSize: textSize, color: Colors.black, fontWeight: textWeight1),
         ),
@@ -72,9 +75,11 @@ Widget nutrientLine(
               fontSize: textSize, color: Colors.black, fontWeight: textWeight2),
         ),
         Container(
-            margin: const EdgeInsets.only(left: 206.0, right: 1.0),
+            margin: EdgeInsetsDirectional.only(start: 160.0, end: 0.0),
+            //margin: const EdgeInsets.only(left: 100.0),
             child: Text(
               "0%",
+              textAlign: TextAlign.right,
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
@@ -86,7 +91,9 @@ Widget nutrientLine(
 }
 
 Widget nutrientSubLine(
-    {textSize: 18.0,
+    {@required nutrientName,
+    @required qty,
+    textSize: 18.0,
     textWeight1: FontWeight.w900,
     textWeight2: FontWeight.w500}) {
   return Container(
@@ -99,21 +106,21 @@ Widget nutrientSubLine(
         Row(
           children: <Widget>[
             Text(
-              "Saturated Fat",
+              nutrientName,
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
                   fontWeight: textWeight2),
             ),
             Text(
-              "0g",
+              "${qty}g",
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
                   fontWeight: textWeight2),
             ),
             Container(
-                margin: const EdgeInsets.only(left: 140.0, right: 1.0),
+                margin: const EdgeInsets.only(left: 110.0, right: 1.0),
                 child: Text(
                   "0%",
                   style: TextStyle(
