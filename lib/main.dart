@@ -44,16 +44,17 @@ Widget nutrientValues() {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        nutrientLine(nutrientName: "Total Fat"),
-        nutrientSubLine(nutrientName: "Saturated Fat", qty: 0.0),
-        nutrientSubLine(nutrientName: "Trans Fat", qty: 0.0),
-        nutrientLine(nutrientName: "Cholesterol"),
-        nutrientLine(nutrientName: "Sodium"),
+        nutrientLine(nutrientName: "Total Fat", qty: 0),
+        nutrientSubLine(nutrientName: "Saturated Fat", qty: 0),
+        nutrientSubLine(nutrientName: "Trans Fat", qty: 0),
+        nutrientLine(nutrientName: "Cholesterol", qty: 0),
+        nutrientLine(nutrientName: "Sodium", qty: 0),
       ]);
 }
 
 Widget nutrientLine(
     {@required nutrientName,
+    @required qty,
     textSize: 18.0,
     textWeight1: FontWeight.w900,
     textWeight2: FontWeight.w500}) {
