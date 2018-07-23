@@ -29,23 +29,66 @@ final nutrientData = {
   "FIBER": {"amount": 4.23456, "unit": "g"},
 };
 
+class NutritionFacts extends StatefulWidget {
+  NutritionFactsState createState() =>
+      NutritionFactsState(nutrientData: nutrientData);
+}
+
+class NutritionFactsState extends State<NutritionFacts> {
+  final nutrientData;
+
+  //Need to type it as Map<String,num>
+  NutritionFactsState({@required this.nutrientData})
+      : assert(nutrientData != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+      padding: EdgeInsets.all(40.0),
+      color: Colors.white,
+      child: nutrientWidget(),
+    ));
+  }
+}
+
+Widget nutrientWidget() {
+  return Container(
+    padding: EdgeInsets.all(1.0),
+    decoration:
+        BoxDecoration(border: new Border.all(color: Colors.black, width: 2.0)),
+    child: Container(
+      padding: EdgeInsets.all(2.0),
+      color: Colors.white,
+      child: Column(
+        children: <Widget>[
+          nutriHeader(),
+          nutrientValues(),
+          footerCalories(),
+        ],
+      ),
+    ),
+  );
+}
+
 Widget nutrientValues() {
   //final n = (1.3456).toStringAsFixed(2);
   //final s = double.parse("1.2345");
   final nutrientTypes = [
-    {"nutrient": "FAT", "name": "Total Fat", "sub": false},
-    {"nutrient": "SATFAT", "name": "Saturated Fat", "sub": true},
-    {"nutrient": "TRANSFAT", "name": "Trans Fat", "sub": true},
-    {"nutrient": "CHOLE", "name": "Cholesterol", "sub": false},
-    {"nutrient": "NA", "name": "Sodium", "sub": false},
+    {"nutrient": "FAT", "name": "Total Fat", "sub": false, "dly": 65.0},
+    {"nutrient": "SATFAT", "name": "Saturated Fat", "sub": true, "dly": 20.0},
+    {"nutrient": "TRANSFAT", "name": "Trans Fat", "sub": true, "dly": null},
+    {"nutrient": "CHOLE", "name": "Cholesterol", "sub": false, "dly": 300.0},
+    {"nutrient": "NA", "name": "Sodium", "sub": false, "dly": 2400.0},
     {
       "nutrient": "CHOCDF",
       "name": "Total Carbohidrate",
       "sub": false,
+      "dly": 10.0,
     },
-    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true},
-    {"nutrient": "SUGAR", "name": "Sugars", "sub": true},
-    {"nutrient": "PROCNT", "name": "Protein", "sub": false}
+    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true, "dly": 10.0},
+    {"nutrient": "SUGAR", "name": "Sugars", "sub": true, "dly": 10.0},
+    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "dly": 10.0}
   ];
 
   return Column(
@@ -54,7 +97,7 @@ Widget nutrientValues() {
         .map((d) => nutrientLiner(
               nutrientName: d["name"],
               qty: nutrientData["${d["nutrient"]}"]["amount"],
-              ptg: 0,
+              ptg: nutrientData["${d["nutrient"]}"]["amount"],
               sub: d["sub"],
               unit: nutrientData["${d["nutrient"]}"]["unit"],
             ))
@@ -162,7 +205,6 @@ Widget nutrientLiner({
                   fontWeight: textWeight2),
             ),
             Expanded(
-                // margin: const EdgeInsets.only(left: 100.0, right: 1.0),
                 child: Text(
               ((ptg != null) ? "${ptg}%" : ""),
               textAlign: TextAlign.right,
