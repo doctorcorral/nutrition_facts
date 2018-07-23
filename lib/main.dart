@@ -35,26 +35,10 @@ class nutritionFactsState extends State<nutritionFacts> {
           children: <Widget>[
             nutriHeader(),
             nutrientValues(),
+            footerCalories(),
           ],
         ),
       ),
     );
   }
-}
-
-Widget nutrientValues() {
-  return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        nutrientLiner(nutrientName: "Total Fat", qty: 0, ptg: 0),
-        nutrientLiner(nutrientName: "Saturated Fat", qty: 0, ptg: 0, sub: true),
-        nutrientLiner(nutrientName: "Trans Fat", qty: 0, ptg: null, sub: true),
-        nutrientLiner(nutrientName: "Cholesterol", qty: 0, ptg: 0),
-        nutrientLiner(nutrientName: "Sodium", qty: 0, ptg: 0),
-        nutrientLiner(nutrientName: "Total Carbohidrate", qty: 5, ptg: 2),
-        nutrientLiner(nutrientName: "Dietary Fiber", qty: 0, ptg: 0, sub: true),
-        nutrientLiner(nutrientName: "Sugars", qty: 6, ptg: null, sub: true),
-        nutrientLiner(nutrientName: "Protein", qty: 1, ptg: 2, sub: true),
-        footerCalories(),
-      ]);
 }

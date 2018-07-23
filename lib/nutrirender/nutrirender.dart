@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 
+Widget nutrientValues() {
+  final nutrientTypes = [
+    {"nutrient": "FAT", "name": "Total Fat", "sub": false, "unit": "g"},
+    {"nutrient": "SATFAT", "name": "Saturated Fat", "sub": true, "unit": "g"},
+    {"nutrient": "TRANSFAT", "name": "Trans Fat", "sub": true, "unit": "g"},
+    {"nutrient": "CHOLE", "name": "Cholesterol", "sub": false, "unit": "mg"},
+    {"nutrient": "NA", "name": "Sodium", "sub": false, "unit": "mg"},
+    {
+      "nutrient": "CHOCDF",
+      "name": "Total Carbohidrate",
+      "sub": false,
+      "unit": "g"
+    },
+    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true, "unit": "g"},
+    {"nutrient": "SUGAR", "name": "Sugars", "sub": true, "unit": "g"},
+    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "unit": "g"}
+  ];
+
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: nutrientTypes
+        .map((d) => nutrientLiner(
+            nutrientName: d["name"], qty: 0, ptg: 0, sub: d["sub"]))
+        .toList(),
+  );
+}
+
 Widget nutriHeader() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +80,6 @@ Widget nutriHeader() {
           color: Colors.black),
       Container(
         alignment: Alignment.topRight,
-        // margin: const EdgeInsets.only(left: 120.0, right: 1.0),
         child: Text(
           "% Daily Value*",
           textAlign: TextAlign.right,
