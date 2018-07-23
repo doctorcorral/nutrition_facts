@@ -4,6 +4,7 @@ import 'package:nutritionfacts/nutrirender/nutrirender.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    theme: ThemeData.light(),
     title: "Nutritional Facts",
     home: nutritionFacts(),
   ));
@@ -45,15 +46,15 @@ Widget nutrientValues() {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        nutrientLine(nutrientName: "Total Fat", qty: 0, ptg: 0),
-        nutrientSubLine(nutrientName: "Saturated Fat", qty: 0, ptg: 0),
-        nutrientSubLine(nutrientName: "Trans Fat", qty: 0, ptg: 0),
-        nutrientLine(nutrientName: "Cholesterol", qty: 0, ptg: 0),
-        nutrientLine(nutrientName: "Sodium", qty: 0, ptg: 0),
-        nutrientLine(nutrientName: "Total Carbohidrate", qty: 5, ptg: 0),
-        nutrientSubLine(nutrientName: "Dietary Fiber", qty: 0, ptg: 0),
-        nutrientSubLine(nutrientName: "Sugars", qty: 0, ptg: 0),
-        nutrientSubLine(nutrientName: "Protein", qty: 1, ptg: null),
+        nutrientLiner(nutrientName: "Total Fat", qty: 0, ptg: 0),
+        nutrientLiner(nutrientName: "Saturated Fat", qty: 0, ptg: 0, sub: true),
+        nutrientLiner(nutrientName: "Trans Fat", qty: 0, ptg: null, sub: true),
+        nutrientLiner(nutrientName: "Cholesterol", qty: 0, ptg: 0),
+        nutrientLiner(nutrientName: "Sodium", qty: 0, ptg: 0),
+        nutrientLiner(nutrientName: "Total Carbohidrate", qty: 5, ptg: 2),
+        nutrientLiner(nutrientName: "Dietary Fiber", qty: 0, ptg: 0, sub: true),
+        nutrientLiner(nutrientName: "Sugars", qty: 6, ptg: null, sub: true),
+        nutrientLiner(nutrientName: "Protein", qty: 1, ptg: 2, sub: true),
         footerCalories(),
       ]);
 }
