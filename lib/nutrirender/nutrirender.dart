@@ -52,9 +52,11 @@ Widget nutriHeader() {
           height: 3.0,
           color: Colors.black),
       Container(
-        margin: const EdgeInsets.only(left: 220.0, right: 1.0),
+        alignment: Alignment.topRight,
+        // margin: const EdgeInsets.only(left: 120.0, right: 1.0),
         child: Text(
           "% Daily Value*",
+          textAlign: TextAlign.right,
           style: TextStyle(
               fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w600),
         ),
