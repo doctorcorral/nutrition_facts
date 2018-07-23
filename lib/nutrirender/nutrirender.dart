@@ -63,59 +63,20 @@ Widget nutriHeader() {
   );
 }
 
-Widget nutrientLine({
+Widget nutrientLiner({
   @required nutrientName,
   @required qty,
   ptg,
-  unit: "g",
-}) {
-  final textSize = 18.0;
-  final textWeight1 = FontWeight.w900;
-  final textWeight2 = FontWeight.w500;
-  return Column(children: <Widget>[
-    Container(
-        margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
-        height: 1.0,
-        color: Colors.black),
-    Row(
-      children: <Widget>[
-        Text(
-          nutrientName,
-          style: TextStyle(
-              fontSize: textSize, color: Colors.black, fontWeight: textWeight1),
-        ),
-        Text(
-          "${qty}${unit}",
-          style: TextStyle(
-              fontSize: textSize, color: Colors.black, fontWeight: textWeight2),
-        ),
-        Container(
-            margin: EdgeInsetsDirectional.only(start: 110.0, end: 0.0),
-            //margin: const EdgeInsets.only(left: 100.0),
-            child: Text(
-              "${ptg}%",
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                  fontSize: textSize,
-                  color: Colors.black,
-                  fontWeight: textWeight1),
-            )),
-      ],
-    )
-  ]);
-}
-
-Widget nutrientSubLine({
-  @required nutrientName,
-  @required qty,
-  ptg,
+  sub: false,
   unit: "g",
 }) {
   final textSize = 18.0;
   final textWeight1 = FontWeight.w900;
   final textWeight2 = FontWeight.w500;
   return Container(
-      padding: EdgeInsetsDirectional.only(start: 26.0, end: 1.0),
+      padding: (sub)
+          ? EdgeInsetsDirectional.only(start: 26.0, end: 1.0)
+          : EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
       child: Column(children: <Widget>[
         Container(
             margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
@@ -128,7 +89,7 @@ Widget nutrientSubLine({
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
-                  fontWeight: textWeight2),
+                  fontWeight: (sub) ? textWeight2 : textWeight1),
             ),
             Text(
               "${qty}${unit}",
@@ -137,16 +98,17 @@ Widget nutrientSubLine({
                   color: Colors.black,
                   fontWeight: textWeight2),
             ),
-            Container(
-                margin: const EdgeInsets.only(left: 100.0, right: 1.0),
+            Expanded(
+                // margin: const EdgeInsets.only(left: 100.0, right: 1.0),
                 child: Text(
-                  ((ptg != null) ? "${ptg}%" : ""),
-                  //"${ptg}%",
-                  style: TextStyle(
-                      fontSize: textSize,
-                      color: Colors.black,
-                      fontWeight: textWeight1),
-                )),
+              ((ptg != null) ? "${ptg}%" : ""),
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontSize: textSize,
+                color: Colors.black,
+                fontWeight: textWeight1,
+              ),
+            )),
           ],
         )
       ]));
