@@ -80,15 +80,16 @@ Widget nutrientValues() {
     {"nutrient": "TRANSFAT", "name": "Trans Fat", "sub": true, "dly": null},
     {"nutrient": "CHOLE", "name": "Cholesterol", "sub": false, "dly": 300.0},
     {"nutrient": "NA", "name": "Sodium", "sub": false, "dly": 2400.0},
+    {"nutrient": "K", "name": "Potassium", "sub": false, "dly": 3500.0},
     {
       "nutrient": "CHOCDF",
       "name": "Total Carbohidrate",
       "sub": false,
-      "dly": 10.0,
+      "dly": 300.0,
     },
-    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true, "dly": 10.0},
-    {"nutrient": "SUGAR", "name": "Sugars", "sub": true, "dly": 10.0},
-    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "dly": 10.0}
+    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true, "dly": 25.0},
+    {"nutrient": "SUGAR", "name": "Sugars", "sub": true, "dly": null},
+    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "dly": 50.0}
   ];
 
   return Column(
@@ -105,7 +106,7 @@ Widget nutrientValues() {
   );
 }
 
-Widget nutriHeader() {
+Widget nutriHeader({calories, servingSize, servings}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
@@ -116,12 +117,12 @@ Widget nutriHeader() {
             color: Colors.black, fontSize: 40.0, fontWeight: FontWeight.w700),
       ),
       Text(
-        "Serving Size 8 oz",
+        "Serving Size $servingSize",
         style: TextStyle(
             fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w400),
       ),
       Text(
-        "Servings Per Container 1.5",
+        "Servings Per Container $servings",
         style: TextStyle(
             fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w400),
       ),
@@ -142,12 +143,12 @@ Widget nutriHeader() {
       ),
       Row(children: <Widget>[
         Text(
-          "Calories ",
+          "Calories",
           style: TextStyle(
               fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w900),
         ),
         Text(
-          " 23",
+          " $calories",
           style: TextStyle(
               fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w500),
         ),
