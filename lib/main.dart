@@ -25,18 +25,22 @@ class nutritionFactsState extends State<nutritionFacts> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-          border: new Border.all(color: Colors.white, width: 4.0)),
+      padding: EdgeInsets.all(40.0),
+      color: Colors.white,
       child: Container(
-        padding: EdgeInsets.all(8.0),
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            nutriHeader(),
-            nutrientValues(),
-            footerCalories(),
-          ],
+        padding: EdgeInsets.all(1.0),
+        decoration: BoxDecoration(
+            border: new Border.all(color: Colors.black, width: 2.0)),
+        child: Container(
+          padding: EdgeInsets.all(2.0),
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              nutriHeader(),
+              nutrientValues(),
+              footerCalories(),
+            ],
+          ),
         ),
       ),
     );

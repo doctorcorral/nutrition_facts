@@ -30,6 +30,8 @@ final nutrientData = {
 };
 
 Widget nutrientValues() {
+  //final n = (1.3456).toStringAsFixed(2);
+  //final s = double.parse("1.2345");
   final nutrientTypes = [
     {"nutrient": "FAT", "name": "Total Fat", "sub": false},
     {"nutrient": "SATFAT", "name": "Saturated Fat", "sub": true},
@@ -68,17 +70,17 @@ Widget nutriHeader() {
         "Nutrition Facts",
         textAlign: TextAlign.left,
         style: TextStyle(
-            color: Colors.black, fontSize: 45.0, fontWeight: FontWeight.w700),
+            color: Colors.black, fontSize: 40.0, fontWeight: FontWeight.w700),
       ),
       Text(
         "Serving Size 8 oz",
         style: TextStyle(
-            fontSize: 17.0, color: Colors.black, fontWeight: FontWeight.w400),
+            fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w400),
       ),
       Text(
-        "Servings per container 1.5",
+        "Servings Per Container 1.5",
         style: TextStyle(
-            fontSize: 17.0, color: Colors.black, fontWeight: FontWeight.w400),
+            fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w400),
       ),
       Container(
         margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
@@ -88,7 +90,7 @@ Widget nutriHeader() {
       Text(
         "Ammount Per Serving",
         style: TextStyle(
-            fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w900),
+            fontSize: 10.0, color: Colors.black, fontWeight: FontWeight.w800),
       ),
       Container(
         margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
@@ -99,12 +101,12 @@ Widget nutriHeader() {
         Text(
           "Calories ",
           style: TextStyle(
-              fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.w900),
+              fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w900),
         ),
         Text(
           " 23",
           style: TextStyle(
-              fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.w500),
+              fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w500),
         ),
       ]),
       Container(
@@ -131,7 +133,7 @@ Widget nutrientLiner({
   sub: false,
   unit: "g",
 }) {
-  final textSize = 18.0;
+  final textSize = 15.0;
   final textWeight1 = FontWeight.w900;
   final textWeight2 = FontWeight.w500;
   return Container(
@@ -153,7 +155,7 @@ Widget nutrientLiner({
                   fontWeight: (sub) ? textWeight2 : textWeight1),
             ),
             Text(
-              "${qty}${unit}",
+              "  ${qty}${unit}",
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
@@ -185,9 +187,9 @@ Widget footerCalories({caloriesNum: 2000}) {
           color: Colors.black,
         ),
         Text(
-          "Percent Daily Values are based on a ${caloriesNum} calories diet",
+          "Percent Daily Values are based on a ${caloriesNum} calories diet.",
           style: TextStyle(
-              fontSize: 12.0, color: Colors.black, fontWeight: FontWeight.w400),
+              fontSize: 10.0, color: Colors.black, fontWeight: FontWeight.w400),
         )
       ]);
 }
