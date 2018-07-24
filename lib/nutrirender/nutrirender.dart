@@ -62,7 +62,7 @@ Widget nutrientWidget() {
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          nutriHeader(),
+          nutriHeader(calories: 23, servings: 3, servingSize: "8 oz."),
           nutrientValues(),
           footerCalories(),
         ],
@@ -87,9 +87,14 @@ Widget nutrientValues() {
       "sub": false,
       "dly": 300.0,
     },
-    {"nutrient": "FIBER", "name": "Dietary Fiber", "sub": true, "dly": 25.0},
+    {"nutrient": "FIBTG", "name": "Dietary Fiber", "sub": true, "dly": 25.0},
     {"nutrient": "SUGAR", "name": "Sugars", "sub": true, "dly": null},
-    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "dly": 50.0}
+    {"nutrient": "PROCNT", "name": "Protein", "sub": false, "dly": 50.0},
+    {"nutrient": "VITB6A", "name": "Vitamin B6", "sub": false, "dly": 2.0},
+    {"nutrient": "THIA", "name": "Thiamin", "sub": false, "dly": 1.5},
+    {"nutrient": "VITA_IU", "name": "Vitamin A", "sub": false, "dly": 5000},
+    {"nutrient": "VITD", "name": "Vitamin D", "sub": false, "dly": 400},
+    {"nutrient": "VITK1", "name": "Vitamin K ", "sub": false, "dly": 80},
   ];
 
   return Column(
