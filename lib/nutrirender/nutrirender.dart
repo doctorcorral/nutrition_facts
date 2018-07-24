@@ -226,11 +226,11 @@ Widget vitaminLiner({
   @required nutrientName,
   @required qty,
   ptg,
+  showQty: false,
   unit: "g",
 }) {
   final textSize = 15.0;
-  final textWeight1 = FontWeight.w900;
-  final textWeight2 = FontWeight.w500;
+  final textWeight = FontWeight.w500;
   return Container(
       padding: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
       child: Column(children: <Widget>[
@@ -245,14 +245,14 @@ Widget vitaminLiner({
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
-                  fontWeight: textWeight2),
+                  fontWeight: textWeight),
             ),
             Text(
-              "  ${qty}${unit}",
+              (showQty) ? "  ${qty}${unit}" : "",
               style: TextStyle(
                   fontSize: textSize,
                   color: Colors.black,
-                  fontWeight: textWeight2),
+                  fontWeight: textWeight),
             ),
             Expanded(
                 child: Text(
@@ -261,7 +261,7 @@ Widget vitaminLiner({
               style: TextStyle(
                 fontSize: textSize,
                 color: Colors.black,
-                fontWeight: textWeight1,
+                fontWeight: textWeight,
               ),
             )),
           ],
